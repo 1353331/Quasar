@@ -1,14 +1,6 @@
 <template>
-  <q-item
-    clickable
-    tag="a"
-    target="_blank"
-    :href="link"
-  >
-    <q-item-section
-      v-if="icon"
-      avatar
-    >
+  <q-item clickable tag="a" :to="link">
+    <q-item-section v-if="icon" avatar>
       <q-icon :name="icon" />
     </q-item-section>
 
@@ -25,10 +17,10 @@
 import { Vue, Component, Prop } from 'vue-property-decorator';
 
 @Component
-export default class EssentialLink extends Vue {
+export default class AppLink extends Vue {
   @Prop({ type: String, required: true }) readonly title!: string;
   @Prop({ type: String, default: '' }) readonly caption!: string;
   @Prop({ type: String, default: '#' }) readonly link!: string;
-  @Prop({ type: String, default: ''}) readonly icon!: string;
+  @Prop({ type: String, default: '' }) readonly icon!: string;
 }
 </script>

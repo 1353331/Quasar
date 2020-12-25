@@ -1,7 +1,7 @@
 <template>
   <q-page class="row items-center justify-evenly">
     <example-component
-      title="Example component"
+      title="Oeuvres Lues"
       active
       :todos="todos"
       :meta="meta"
@@ -43,5 +43,5 @@ export default class PageIndex extends Vue {
   meta: Meta = {
     totalCount: 1200
   };
-};
+}
 </script>

@@ -26,17 +26,10 @@
       content-class="bg-grey-1"
     >
       <q-list>
-        <q-item-label
-          header
-          class="text-grey-8"
-        >
-          Essential Links
+        <q-item-label header class="text-grey-8">
+          Navigation
         </q-item-label>
-        <EssentialLink
-          v-for="link in essentialLinks"
-          :key="link.title"
-          v-bind="link"
-        />
+        <AppLink v-for="link in appLinks" :key="link.title" v-bind="link" />
       </q-list>
     </q-drawer>
 
@@ -47,60 +40,30 @@
 </template>
 
 <script lang="ts">
-import EssentialLink from 'components/EssentialLink.vue'
+import AppLink from 'components/AppLink.vue';
 
 const linksData = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'https://quasar.dev'
+    title: 'Oeuvres',
+    caption: 'Liste des oeuvres lues',
+    icon: 'local_library',
+    link: '/'
   },
   {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
+    title: 'Prochaine Rencontre',
+    caption: 'Informations sur la prochaine rencontre',
+    icon: 'connect_without_contact',
+    link: '/ProchaineRencontre'
   }
 ];
 
 import { Vue, Component } from 'vue-property-decorator';
 
 @Component({
-  components: { EssentialLink }
+  components: { AppLink }
 })
 export default class MainLayout extends Vue {
   leftDrawerOpen = false;
-  essentialLinks = linksData;
+  appLinks = linksData;
 }
 </script>
